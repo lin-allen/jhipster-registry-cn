@@ -6,8 +6,8 @@
                 <jhi-refresh-selector class="float-right refresh-left-side"></jhi-refresh-selector>
             </div>
             <div class="alert alert-warning" *ngSwitchCase="false">
-                <span>You are not authenticated.</span>
-                <a class="alert-link" (click)="login()">Please sign in</a>
+                <span>您没有经过身份验证。</span>
+                <a class="alert-link" (click)="login()">请登录</a>
             </div>
         </div>
     </div>
@@ -15,29 +15,29 @@
         <div class="col-sm-12 col-md-6" *ngIf="status">
             <div class="card card-outline-primary">
                 <div class="card-header card-primary">
-                    <h3 class="card-title">System Status</h3>
+                    <h3 class="card-title">系统状态</h3>
                 </div>
                 <div class="card-block">
                     <table class="table">
                         <tbody>
                         <tr>
-                            <td>Environment</td>
+                            <td>环境变量</td>
                             <td>{{status.environment}}</td>
                         </tr>
                         <tr>
-                            <td>Data Center</td>
+                            <td>数据中心</td>
                             <td>{{status.datacenter}}</td>
                         </tr>
                         <tr>
-                            <td>Current Time</td>
+                            <td>当前时间</td>
                             <td>{{status.currentTime}}</td>
                         </tr>
                         <tr>
-                            <td>System Uptime</td>
+                            <td>启动时间</td>
                             <td>{{status.upTime}}</td>
                         </tr>
                         <tr>
-                            <td>Below Renew Threshold</td>
+                            <td>健康状态</td>
                             <td>{{status.isBelowRenewThreshold}}</td>
                         </tr>
                         </tbody>
@@ -48,16 +48,16 @@
         <div class="col-sm-12 col-md-6" *ngIf="appInstances">
             <div class="card card-outline-primary">
                 <div class="card-header card-primary">
-                    <h3 class="card-title">Instances Registered</h3>
+                    <h3 class="card-title">已注册实例</h3>
                 </div>
                 <div class="card-block">
                     <!--{vm.apps.applications}}-->
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>App</th>
-                            <th>Instance ID</th>
-                            <th>Status</th>
+                            <th>服务名称</th>
+                            <th>实例ID</th>
+                            <th>状态</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -80,29 +80,29 @@
         <div class="col-sm-12 col-md-6" *ngIf="status">
             <div class="card card-outline-primary">
                 <div class="card-header card-primary">
-                    <h3 class="card-title">General Info</h3>
+                    <h3 class="card-title">基本信息</h3>
                 </div>
                 <div class="card-block">
                     <table class="table">
                         <tbody>
                         <tr>
-                            <td>Total Available Memory</td>
+                            <td>总可用内存</td>
                             <td>{{status.generalStats['total-avail-memory']}}</td>
                         </tr>
                         <tr>
-                            <td>Current Memory Usage</td>
+                            <td>当前内存使用量</td>
                             <td>{{status.generalStats['current-memory-usage']}}</td>
                         </tr>
                         <tr>
-                            <td>Number of CPU</td>
+                            <td>CPU核心数</td>
                             <td>{{status.generalStats['num-of-cpus']}}</td>
                         </tr>
                         <tr>
-                            <td>Instance Ip Address</td>
+                            <td>注册中心地址</td>
                             <td>{{status.instanceInfo.ipAddr}}</td>
                         </tr>
                         <tr>
-                            <td>Instance Status</td>
+                            <td>注册中心状态</td>
                             <td>
                                 <span class="badge badge-pill font-weight-normal" [ngClass]="getBadgeClass(status.instanceInfo.status)">
                                     {{status.instanceInfo.status}}

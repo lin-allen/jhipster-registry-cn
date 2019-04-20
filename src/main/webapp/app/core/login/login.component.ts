@@ -54,7 +54,7 @@ export class JhiLoginModalComponent implements OnInit, AfterViewInit {
             })
             .then(() => {
                 this.authenticationError = false;
-                this.activeModal.dismiss('login success');
+                this.activeModal.dismiss('登录成功');
                 if (
                     this.router.url === '/register' ||
                     /activate/.test(this.router.url) ||

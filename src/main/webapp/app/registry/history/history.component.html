@@ -1,16 +1,16 @@
 <div>
     <div class="head">
-        <h2 class="d-inline-block">Instances history</h2>
+        <h2 class="d-inline-block">历史注册实例</h2>
         <jhi-refresh-selector class="float-right refresh-left-side"></jhi-refresh-selector>
     </div>
 
     <div class="panel panel-default">
         <div class="panel-body">
             <ngb-tabset activeId="registered" (tabChange)="beforeChange($event)" type="pills">
-                <ngb-tab id="registered" title="Last registered leases">
+                <ngb-tab id="registered" title="最新注册实例">
                     <ng-template ngbTabContent></ng-template>
                 </ngb-tab>
-                <ngb-tab id="canceled" title="Last canceled leases">
+                <ngb-tab id="canceled" title="最新注销实例">
                     <ng-template ngbTabContent></ng-template>
                 </ngb-tab>
             </ngb-tabset>
@@ -18,8 +18,8 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Time</th>
-                        <th>Instance</th>
+                        <th>时间</th>
+                        <th>实例</th>
                     </tr>
                     </thead>
                     <tbody *ngIf="items">

@@ -1,29 +1,29 @@
 <div>
     <div class="head">
-        <h2 class="d-inline-block">Encrypt and decrypt properties</h2>
+        <h2 class="d-inline-block">加密和解密属性</h2>
     </div>
     <div class="panel panel-default">
         <div class="panel-body">
             <ngb-tabset type="pills" class="nav-fill">
-                <ngb-tab title="Encrypt" id="encrypt">
+                <ngb-tab title="加密" id="encrypt">
                     <ng-template ngbTabContent>
                         <form>
                             <textarea type="text" class="form-control my-1" id="textToEncrypt"
                                    required
                                    [(ngModel)]="textToEncrypt" name="encryptText"
                                       #name="ngModel"></textarea>
-                            <button type="submit" class="btn btn-success" [disabled]="textToEncrypt === ''" (click)="encrypt()">Encrypt</button>
+                            <button type="submit" class="btn btn-success" [disabled]="textToEncrypt === ''" (click)="encrypt()">加密</button>
                         </form>
                     </ng-template>
                 </ngb-tab>
-                <ngb-tab title="Decrypt" id="decrypt">
+                <ngb-tab title="解密" id="decrypt">
                     <ng-template ngbTabContent>
                         <form>
                             <textarea type="text" class="form-control my-1" id="encryptedText"
                                    required
                                    [(ngModel)]="encryptedText" name="decryptText"
                                    #name="ngModel"></textarea>
-                            <button type="submit" class="btn btn-success" [disabled]="encryptedText === ''" (click)="decrypt()">Decrypt</button>
+                            <button type="submit" class="btn btn-success" [disabled]="encryptedText === ''" (click)="decrypt()">解密</button>
                         </form>
                     </ng-template>
                 </ngb-tab>
@@ -39,28 +39,27 @@
         <div class="text-center pad" >
             <a (click)="showMore = !showMore" class="btn btn-default">
                 <span *ngIf="showMore">
-                    <span class="fa fa-arrow-circle-down"></span>&nbsp;show more
+                    <span class="fa fa-arrow-circle-down"></span>&nbsp;更多
                 </span>
                     <span *ngIf="!showMore">
-                    <span class="fa fa-arrow-circle-up"></span>&nbsp;show less
+                    <span class="fa fa-arrow-circle-up"></span>&nbsp;隐藏
                 </span>
             </a>
         </div>
         <div [ngbCollapse]="showMore">
-            <h3><span class="fa fa-info-circle"></span> Using Encryption</h3>
+            <h3><span class="fa fa-info-circle"></span> 使用加密</h3>
             <p>
-                In order to not leave your secrets in plain text at rest, encrypt them using this UI. Then store the encrypted value like this:
+                为了不让您的密码以纯文本形式保存，请使用此UI加密它们。然后像这样存储加密后的值:
             </p>
             <pre class="code-block">
 sample:
     property: '{{ '{' }}cipher{{ '}' }}FKSAJDFGYOS8F7GLHAKERGFHLSAJ'
                 </pre>
             <p class="alert alert-danger">
-                <strong>Warning</strong>: Before being able to encrypt/decrypt your properties values, you will need to configure a strong encryption key in the <code>encrypt.key</code> property.
-                <br>When using the JHipster Registry docker image, you can set this with the <code>ENCRYPT_KEY</code> environment variable.
-                Note that this property only needs to be set for the JHipster Registry as your applications will retrieve the decrypted values directly from the config server.
+                <strong>注意：</strong>: 在能够加密/解密属性值之前，需要在<code>encrypt.key</code>属性中配置一个强加密密钥。
+                <br>当使用JHipster Registry docker映像时，您可以使用<code>ENCRYPT_KEY</code>环境变量设置它。
+                注意，只需要为服务注册中心设置此属性，因为您的应用程序将直接从配置中心检索解密的值。
             </p>
-
         </div>
     </div>
 </div>
