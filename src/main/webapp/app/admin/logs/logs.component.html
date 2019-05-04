@@ -1,17 +1,17 @@
 <div *ngIf="loggers">
     <div class="head">
-        <h2 class="d-inline-block">日志</h2>
+        <h2 class="d-inline-block">Loggers</h2>
         <jhi-route-selector class="float-right refresh-left-side"></jhi-route-selector>
     </div>
 
-    <p>共有 {{ loggers.length }} 条日志.</p>
+    <p>There are {{ loggers.length }} loggers.</p>
 
-    <span>筛选</span> <input type="text" [(ngModel)]="filter" class="form-control">
+    <span>Filter</span> <input type="text" [(ngModel)]="filter" class="form-control">
     <table class="table table-condensed table-striped table-bordered">
         <thead>
         <tr title="click to order">
-            <th (click)="orderProp = 'name'; reverse=!reverse"><span>名称</span></th>
-            <th (click)="orderProp = 'level'; reverse=!reverse"><span>等级</span></th>
+            <th (click)="orderProp = 'name'; reverse=!reverse"><span>Name</span></th>
+            <th (click)="orderProp = 'level'; reverse=!reverse"><span>Level</span></th>
         </tr>
         </thead>
 

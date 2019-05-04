@@ -9,8 +9,8 @@
                     <ng-template ngbTabContent>
                         <form>
                             <textarea type="text" class="form-control my-1" id="textToEncrypt"
-                                   required
-                                   [(ngModel)]="textToEncrypt" name="encryptText"
+                                      required
+                                      [(ngModel)]="textToEncrypt" name="encryptText"
                                       #name="ngModel"></textarea>
                             <button type="submit" class="btn btn-success" [disabled]="textToEncrypt === ''" (click)="encrypt()">加密</button>
                         </form>
@@ -20,9 +20,9 @@
                     <ng-template ngbTabContent>
                         <form>
                             <textarea type="text" class="form-control my-1" id="encryptedText"
-                                   required
-                                   [(ngModel)]="encryptedText" name="decryptText"
-                                   #name="ngModel"></textarea>
+                                      required
+                                      [(ngModel)]="encryptedText" name="decryptText"
+                                      #name="ngModel"></textarea>
                             <button type="submit" class="btn btn-success" [disabled]="encryptedText === ''" (click)="decrypt()">解密</button>
                         </form>
                     </ng-template>
@@ -41,7 +41,7 @@
                 <span *ngIf="showMore">
                     <span class="fa fa-arrow-circle-down"></span>&nbsp;更多
                 </span>
-                    <span *ngIf="!showMore">
+                <span *ngIf="!showMore">
                     <span class="fa fa-arrow-circle-up"></span>&nbsp;隐藏
                 </span>
             </a>

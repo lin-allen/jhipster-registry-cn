@@ -15,15 +15,15 @@
     <div class="text-center pad" >
         <a (click)="showMore = !showMore" class="btn btn-default">
             <span *ngIf="showMore">
-                <span class="fa fa-arrow-circle-down"></span>&nbsp;更多
+                <fa-icon icon="arrow-circle-down"></fa-icon>&nbsp;更多
             </span>
             <span *ngIf="!showMore">
-                <span class="fa fa-arrow-circle-up"></span>&nbsp;隐藏
+                <fa-icon icon="arrow-circle-up"></fa-icon>&nbsp;隐藏
             </span>
         </a>
     </div>
 	<div [ngbCollapse]="showMore">
-        <h3><span class="fa fa-info-circle"></span> Using SSH with Docker</h3>
+        <h3><fa-icon icon="info-circle"></fa-icon> Using SSH with Docker</h3>
         <p>
             <a href="https://hub.docker.com/r/jhipster/jhipster-registry/" target="_blank">jhipster/jhipster-registry/</a>是使用JHipster Registry Docker映像时的详细说明。
         </p>

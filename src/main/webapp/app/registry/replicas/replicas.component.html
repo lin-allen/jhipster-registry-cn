@@ -1,6 +1,6 @@
 <div>
     <div class="head">
-        <h2 class="d-inline-block">注册配置复制</h2>
+        <h2 class="d-inline-block">注册信息复制</h2>
         <jhi-refresh-selector class="float-right refresh-left-side"></jhi-refresh-selector>
     </div>
 
@@ -23,17 +23,17 @@
     <div class="text-center pad">
         <a (click)="showMore = !showMore" class="btn btn-default">
             <span *ngIf="showMore">
-                <span class="fa fa-arrow-circle-down"></span>&nbsp;更多
+                <fa-icon icon="arrow-circle-down"></fa-icon>&nbsp;更多
             </span>
             <span *ngIf="!showMore">
-                <span class="fa fa-arrow-circle-up"></span>&nbsp;隐藏
+                <fa-icon icon="arrow-circle-up"></fa-icon>&nbsp;隐藏
             </span>
         </a>
     </div>
     <div [ngbCollapse]="showMore">
-        <h3><span class="fa fa-info-circle"></span> 注册配置复制</h3>
+        <h3><fa-icon icon="info-circle"></fa-icon> 注册信息复制</h3>
         <p>
-            这是用于配置的Spring Cloud Netflix官方文档，这是用于配置复制的Spring Cloud Netflix官方文档:
+            这是用于配置的Spring Cloud Netflix官方文档，这是用于注册信息复制的Spring Cloud Netflix官方文档:
         </p>
         <ul>
             <li>
@@ -47,12 +47,12 @@
                 </a>
             </li>
         </ul>
-        <h4>独立模式</h4>
+        <h4>独立模式(无复制)</h4>
         <p>
             默认情况下，JHipster注册表在独立模式下工作:您将在此屏幕中看到一个副本，它是当前独立的
             注册表:副本的地址应该与服务器的地址相同。
         </p>
-        <h4>对等点感知模式</h4>
+        <h4>对等点感知模式(对等点之间的复制)</h4>
         <p>
             JHipster注册表还可以在“对等感知模式”下工作，并为这两个预定义的Spring配置文件(名为“peer1”和“peer2”)提供了支持。
             这些概要文件在这里主要作为工作示例，因为您可能希望在生产中使用一些不同的东西。
@@ -70,7 +70,7 @@
 127.0.0.1	eureka-peer-1
 127.0.0.1	eureka-peer-2</pre>
         <p>
-            运行一个高可用服务注册中心,只要运行如下命令:
+            下面是“peer1”的示例工作配置。注意，它的“serviceUrl”指向“peer2”:
         </p>
         <ul>
             <li>
@@ -82,7 +82,7 @@
         </ul>
 
         <p>
-            下面是“peer1”的示例工作配置。注意，它的“serviceUrl”指向“peer2”:
+            这里是“peer2”的相同配置，它有一个指向“peer1”的“serviceUrl”:peer1
         </p>
         <pre class="code-block">
 server:
@@ -103,7 +103,7 @@ eureka:
         serviceUrl:
             defaultZone: http://admin:admin@eureka-peer-2:8762/eureka/</pre>
         <p>
-            这里是“peer2”的相同配置，它有一个指向“peer1”的“serviceUrl”:peer1
+            Here is the same configuration for "peer2", which has a "serviceUrl" pointing to "peer1":
         </p>
         <pre class="code-block">
 server:

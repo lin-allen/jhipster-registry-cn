@@ -3,7 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { LoginService } from './login.service';
+import { LoginService } from 'app/core';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
 
 @Component({
@@ -54,7 +54,7 @@ export class JhiLoginModalComponent implements OnInit, AfterViewInit {
             })
             .then(() => {
                 this.authenticationError = false;
-                this.activeModal.dismiss('登录成功');
+                this.activeModal.dismiss('login success');
                 if (
                     this.router.url === '/register' ||
                     /activate/.test(this.router.url) ||
