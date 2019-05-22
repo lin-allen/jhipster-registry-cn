@@ -5,7 +5,7 @@
 
     <groupId>io.github.jhipster.registry</groupId>
     <artifactId>jhipster-registry</artifactId>
-    <version>5.0.0</version>
+    <version>5.0.1</version>
     <packaging>jar</packaging>
     <name>JHipster Registry</name>
     <description>JHipster service registry, made with Netflix Eureka and Spring Cloud Config</description>
@@ -318,6 +318,11 @@
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
+        <!-- Needed to enable log reporting to logstash through Dropwizard console reporter -->
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+        </dependency>
         <!-- Java 11+ support -->
         <dependency>
             <groupId>org.glassfish.jaxb</groupId>
@@ -463,6 +468,7 @@
                     <artifactId>exec-maven-plugin</artifactId>
                     <version>${exec-maven-plugin.version}</version>
                     <configuration>
+                        <mainClass>${start-class}</mainClass>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -513,6 +519,7 @@
                     <configuration>
                         <executable>true</executable>
                         <fork>true</fork>
+                        <mainClass>${start-class}</mainClass>
                         <!--
                         Enable the line below to have remote debugging of your application on port 5005
                         <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments>
@@ -676,6 +683,7 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <mainClass>${start-class}</mainClass>
                     <executable>true</executable>
                     <fork>true</fork>
                     <!--
@@ -828,6 +836,7 @@
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
                         <configuration>
+                            <mainClass>${start-class}</mainClass>
                             <executable>true</executable>
                         </configuration>
                         <executions>
@@ -938,17 +947,14 @@
                 <dependency>
                     <groupId>io.prometheus</groupId>
                     <artifactId>simpleclient</artifactId>
-                    <version>0.6.0</version>
                 </dependency>
                 <dependency>
                     <groupId>io.prometheus</groupId>
                     <artifactId>simpleclient_servlet</artifactId>
-                    <version>0.6.0</version>
                 </dependency>
                 <dependency>
                     <groupId>io.prometheus</groupId>
                     <artifactId>simpleclient_dropwizard</artifactId>
-                    <version>0.6.0</version>
                 </dependency>
             </dependencies>
         </profile>

@@ -1,6 +1,6 @@
 <div>
     <div class="head">
-        <h2 class="d-inline-block">注册信息复制</h2>
+        <h2 class="d-inline-block">Registry Replicas</h2>
         <jhi-refresh-selector class="float-right refresh-left-side"></jhi-refresh-selector>
     </div>
 
@@ -23,54 +23,59 @@
     <div class="text-center pad">
         <a (click)="showMore = !showMore" class="btn btn-default">
             <span *ngIf="showMore">
-                <fa-icon icon="arrow-circle-down"></fa-icon>&nbsp;更多
+                <fa-icon icon="arrow-circle-down"></fa-icon>&nbsp;show more
             </span>
             <span *ngIf="!showMore">
-                <fa-icon icon="arrow-circle-up"></fa-icon>&nbsp;隐藏
+                <fa-icon icon="arrow-circle-up"></fa-icon>&nbsp;show less
             </span>
         </a>
     </div>
     <div [ngbCollapse]="showMore">
-        <h3><fa-icon icon="info-circle"></fa-icon> 注册信息复制</h3>
+        <h3><fa-icon icon="info-circle"></fa-icon> Configuring replication</h3>
         <p>
-            这是用于配置的Spring Cloud Netflix官方文档，这是用于注册信息复制的Spring Cloud Netflix官方文档:
+            Here is the Spring Cloud Netflix official documentation for configuring replication:
         </p>
         <ul>
             <li>
                 <a href="http://cloud.spring.io/spring-cloud-static/spring-cloud.html#_standalone_mode" target="_blank">
-                    独立模式(无复制)
+                    Standalone mode (no replication)
                 </a>
             </li>
             <li>
                 <a href="http://cloud.spring.io/spring-cloud-static/spring-cloud.html#_peer_awareness" target="_blank">
-                    对等点感知模式(对等点之间的复制)
+                    Peer aware mode (replication between peers)
                 </a>
             </li>
         </ul>
-        <h4>独立模式(无复制)</h4>
+        <h4>Standalone mode</h4>
         <p>
-            默认情况下，JHipster注册表在独立模式下工作:您将在此屏幕中看到一个副本，它是当前独立的
-            注册表:副本的地址应该与服务器的地址相同。
+            By default, the JHipster Registry works in standalone mode: you will see one replica in this screen, which
+            the current standalone
+            registry: the address of the replica should be the same as the address of your server.
         </p>
-        <h4>对等点感知模式(对等点之间的复制)</h4>
+        <h4>Peer aware mode</h4>
         <p>
-            JHipster注册表还可以在“对等感知模式”下工作，并为这两个预定义的Spring配置文件(名为“peer1”和“peer2”)提供了支持。
-            这些概要文件在这里主要作为工作示例，因为您可能希望在生产中使用一些不同的东西。
+            The JHipster Registry also works in "peer aware mode", and provides for this two pre-defined Spring
+            profiles, named "peer1" and "peer2".
+            Those profiles are mostly here as working examples, as you will probably want something different in
+            production.
         </p>
         <p>
-            这些概要文件触发一些特定的Spring引导配置，这些配置可以在注册表中使用
-            <code>src/main/resources/config</code>文件夹中。
+            Those profiles trigger some specific Spring Boot configurations, which are available in your registry's
+            <code>src/main/resources/config</code> folder.
         </p>
         <p>
-            这些概要文件期望有两个不同的主机，每个主机对应一个副本:Eureka需要这样做，它希望在不同的服务器上有副本。
-            如果你想在本地机器上运行它，你需要将这两个主机名指向本地地址，
-            例如在Unix/MacOSX系统上，编辑<code>/etc/hosts</code>来添加这些行:
+            Those profiles expect to have 2 different hosts, one for each replica: this is required by Eureka, which
+            expects to have replicas
+            on different servers. If you want to run this on your local machine, you need to point those 2 hostnames to
+            your local address, for
+            example on a Unix/MacOSX system, edit <code>/etc/hosts</code> to add those lines:
         </p>
         <pre class="code-block"># Eureka peers
 127.0.0.1	eureka-peer-1
 127.0.0.1	eureka-peer-2</pre>
         <p>
-            下面是“peer1”的示例工作配置。注意，它的“serviceUrl”指向“peer2”:
+            Running a peer-aware development cluster is then just a matter of running:
         </p>
         <ul>
             <li>
@@ -82,7 +87,7 @@
         </ul>
 
         <p>
-            这里是“peer2”的相同配置，它有一个指向“peer1”的“serviceUrl”:peer1
+            Here is a sample working configuration for "peer1". Note that its "serviceUrl" points to "peer2":
         </p>
         <pre class="code-block">
 server:
